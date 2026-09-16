@@ -11,37 +11,39 @@ const UpdateStdBtn = document.getElementById('UpdateStdBtn');
 
 
 
-let stdsArr =[
+// let stdsArr =[
 
-{
-    fname: "Haseeb",
-    lname: "Sayyed",
-    email: "hs@gmail.com",
-    contact: 8767403773,
-    stdId: '123'
+// {
+//     fname: "Haseeb",
+//     lname: "Sayyed",
+//     email: "hs@gmail.com",
+//     contact: 8767403773,
+//     stdId: '123'
 
-},
-{
-    fname: "Anas",
-    lname: "Qureshi",
-    email: "aq@gmail.com",
-    contact: 7057593616,
-    stdId: '124'
+// },
+// {
+//     fname: "Anas",
+//     lname: "Qureshi",
+//     email: "aq@gmail.com",
+//     contact: 7057593616,
+//     stdId: '124'
 
-}
-
-
-
-];
+// }
 
 
-localStorage.setItem("stdsArr", JSON.stringify(stdsArr))
+
+// ];
+
+
+// localStorage.setItem("stdsArr", JSON.stringify(stdsArr))
 
 
 // let stdsJson = localStorage.getItem("stdsArr") || [];
 
 // let stdsArr = JSON.parse(stdsJson)
 
+let stdsArr = JSON.parse(localStorage.getItem("stdsArr")) || [];
+cl(stdsArr)
 
 
 

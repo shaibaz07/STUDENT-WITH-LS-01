@@ -6,6 +6,7 @@ const lnameControl = document.getElementById('lname');
 const emailControl = document.getElementById('email');
 const contactControl = document.getElementById('contact');
 const stdContainer = document.getElementById('stdContainer');
+
 const addStdBtn = document.getElementById('addStdBtn');
 const UpdateStdBtn = document.getElementById('UpdateStdBtn');
 
@@ -67,6 +68,7 @@ function onStdAdd(eve) {
     // createStdtrs(stdsArr)   // instead of calling templating fun create only one TR and append in it tbody
 
     let tr = document.createElement('tr');
+    tr.id = STD_OBJ.stdId;
     tr.innerHTML = `
                                         
                                         <td>${stdsArr.length}</td>
@@ -76,11 +78,11 @@ function onStdAdd(eve) {
                                         <td>${STD_OBJ.contact}</td>
                                         <td  class="text-center">
                                             <i onclick="onEdit(this)" class="fa-solid fa-pen-to-square fa-2x text-primary" role="button"
-                                             data-stdid=${STD_OBJ.stdId}></i>
+                                             data-stdid="${STD_OBJ.stdId}"></i>
                                         </td>
                                         <td class="text-center">
                                             <i onclick="onReove(this)" class="fa-solid fa-trash-can fa-2x text-danger"  role="button"
-                                             data-stdid=${STD_OBJ.stdId}></i>
+                                             data-stdid="${STD_OBJ.stdId}"></i>
                                         </td>
     
    
@@ -107,11 +109,11 @@ function createStdtrs(arr) {
                                         <td>${std.contact}</td>
                                         <td  class="text-center">
                                             <i onclick="onEdit(this)" class="fa-solid fa-pen-to-square fa-2x text-primary" role="button"
-                                             data-stdid=${std.stdId}></i>
+                                             data-stdid="${std.stdId}"></i>
                                         </td>
                                         <td class="text-center">
                                             <i onclick="onRemove(this)" class="fa-solid fa-trash-can fa-2x text-danger"  role="button"
-                                             data-stdid=${std.stdId}></i>
+                                             data-stdid="${std.stdId}"></i>
                                         </td>
                                     </tr>
     
@@ -137,7 +139,7 @@ function onEdit(ele) {
     addStdBtn.classList.add('d-none');
     UpdateStdBtn.classList.remove('d-none');
 
-    UpdateStdBtn.setAttribute('data-editid', EDIT_ID);
+    // UpdateStdBtn.setAttribute('data-editid', EDIT_ID);
 
 }
 
@@ -169,9 +171,10 @@ function onStdupdate() {
     tr[3].innerText = UPDATED_OBJ.email;
     tr[4].innerText = UPDATED_OBJ.contact;
 
-    stdform.reset()
+   
     UpdateStdBtn.classList.add('d-none');
-    addStdBtn.classList.remove('d-none')
+    addStdBtn.classList.remove('d-none');
+     stdform.reset()
 
     Swal.fire({
         title: `The student with ${UPDATE_ID} is updated successfully !!!`,
